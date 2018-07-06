@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Main" >
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Super-Store</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/shop-homepage.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toaster.min.css">
+    <link rel="stylesheet" href="css/credit.css">
+
+    <!-- AngularJS -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/toaster.min.js"></script>
+    <script src="js/angular-mocks.js"></script>
+
+    <!-- Source -->
+    <script src="app/app.js"></script>
+    <script src="app/login/login.js"></script>
+    <script src="app/registration/register.js"></script>
+    <script src="app/store/store.js"></script>
+    <script src="app/nav/nav.js"></script>
+    <script src="app/checkout/checkout.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/productResource.js"></script>
+    <script src="common/services/logoutStateService.js"></script>
+    <script src="common/services/productResourceMock.js"></script>
+    <script src="common/services/shoppingCartService.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div ui-view name="nav" ></div> 
+
+    <div class="container">
+        <div ui-view name="content" ></div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p id="footer">Copyright &copy; Super-Store 2017</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/credit.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/tooltip.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<toaster-container></toaster-container>
+<!-- Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Shipping and Billing</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Shipping Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="shippingForm" novalidate>
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':shippingForm.shipFullname.$error.pattern}"></span>
+                                <input type="text" name="shipFullname" id="full-name" class="form-control" placeholder="...first & lastname" ng-model="vm.ship.Name" ng-pattern="/^[a-zA-Z\s+]+$/" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':shippingForm.shippingEmail.$error.email}"></span>
+                                <input type="email" name="shippingEmail" id="email" class="form-control" placeholder="Email" ng-model="vm.ship.Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Phone</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':shippingForm.shipPhone.$error.pattern || shippingForm.shipPhone.$error.minlength || shippingForm.shipPhone.$error.maxlength}"></span>
+                                <input type="text" name="shipPhone"  id="pass" class="form-control" placeholder="...10 digits, no symbols, numbers only." ng-pattern="/^[0-9]+$/" ng-maxlength="10" ng-minlength="10" ng-model="vm.ship.Phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':shippingForm.shipAddress.$error.pattern}"></span>
+                                <input type="text" name="shipAddress" id="address" class="form-control" placeholder="we do not ship to P.O. boxes" ng-model="vm.ship.Address" ng-pattern="/^[0-9a-zA-Z-.\s+]+$/" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipcode">Zip Code</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':shippingForm.shipZip.$error.pattern}"></span>
+                                <input type="text" name="shipZip" class="form-control" ng-model="vm.ship.Zip" ng-pattern="/^[0-9-]+$/" id="zipcode" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Billing Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="cardIssuer" class="form-inline" novalidate>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                    <input type="radio" name="cardSelect"  ng-model="vm.card.Issuer" required > Visa
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                    <input type="radio" name="cardSelect" ng-model="vm.card.Issuer" required > MasterCard
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                    <input type="radio" name="cardSelect" ng-model="vm.card.Issuer" required > AMEX
+                                    </label>
+                                </div>
+                            </div>                            
+                        </form><br/>
+                        <form name="billForm">
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" name="cardNumber" class="form-control" id="card-number" placeholder="Full 16 digits" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ccv">CCV</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':billForm.billCcv.$error.pattern || billForm.billCcv.$error.minlength || billForm.billCcv.$error.maxlength}"></span>
+                                <input type="text" name="billCcv" id="ccv" class="form-control" placeholder="credit card security code" ng-pattern="/^\d+$/" ng-maxlength="3" ng-minlength="3" ng-model="vm.bill.Ccv" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-name">Card Holder's Name</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':billForm.billName.$error.pattern}"></span>
+                                <input type="text" name="billName" id="card-name" class="form-control" placeholder="Name as it appears on card" ng-pattern="/^[a-zA-Z-\s+]+$/" ng-model="vm.bill.Name" required>
+                            </div>                            
+                        </form>
+                        <h4>Expiration</h4>
+                        <form class="form-inline">
+                            <label for="exp-month">Month</label>
+                            <select id="exp-month" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>                                
+                            </select>
+                            <label for="exp-year">Year</label>
+                            <select id="exp-year" class="form-control">
+                                <option>2017</option>
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="vm.makePayment()" ng-disabled="shippingForm.$invalid || billForm.$invalid || !cardIssuer.$invalid">Confirm & Pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-3 animated slideInLeft">
+        <p class="lead">Checkout</p>
+        <div class="list-group">
+            <a href="#" class="list-group-item">Category 1</a>
+            <a href="#" class="list-group-item">Category 2</a>
+            <a href="#" class="list-group-item">Category 3</a>
+        </div>
+        <a ui-sref="main" role="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</a>
+        <a ui-sref="checkout" role="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#paymentModal">Make Payment</a>
+    </div>
+    <div class="col-md-9">
+        <table class="table table-striped animated slideInLeft" > 
+            <thead> 
+                <tr> 
+                    <th>#</th> 
+                    <th>Product Name</th> 
+                    <th>SKU</th> 
+                    <th>Price</th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                <tr ng-repeat="item in vm.items track by $index"> 
+                    <th scope="row">{{ $index }}</th> 
+                    <td>{{ item.name }}</td> 
+                    <td>{{ item.productId }}</td>
+                    <td>{{ item.price }}</td>
+                    <td> <button type="button" class="btn btn-primary" ng-click="vm.removeItemFromCart($index)">Remove</button> </td>
+                </tr> 
+            </tbody> 
+        </table>
+    </div>
+</div>

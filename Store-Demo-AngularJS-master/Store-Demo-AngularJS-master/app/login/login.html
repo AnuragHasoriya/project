@@ -1,0 +1,18 @@
+<div class="col-md-4 col-md-offset-4 animated fadeInLeftBig">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <toaster-container></toaster-container>
+            <h2 class="form-signin-heading">Sign in</h2>
+            <form name="loginForm" class="form-signin" ng-submit="login.signIn(loginForm.$valid)" novalidate>
+                <div class="form-group">
+                    <label for="inputUsername">Username</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':loginForm.username.$error.pattern || loginForm.username.$error.minlength || loginForm.username.$error.maxlength}"></span>
+                    <input type="text" id="inputUsername" name="username" class="form-control" ng-model="login.log.username" ng-pattern="/^[a-zA-Z0-9]+$/" ng-maxlength="16" ng-minlength="4" placeholder="...pick a username..." data-toggle="popover" data-content="Upper or lowercase letters and numbers, 4-16 characters." data-placement="right" data-trigger="focus" required autofocus><br/>
+                    <label for="inputPassword">Password</label><span ng-class="{'glyphicon glyphicon-asterisk pull-right':loginForm.pass.$error.pattern || loginForm.pass.$error.minlength || loginForm.pass.$error.maxlength}"></span>
+                    <input type="password" id="inputPassword" name="pass" class="form-control" ng-model="login.log.pass" ng-pattern="/^\S*$/" ng-maxlength="16" ng-minlength="4" placeholder="...make sure is a strong one!" data-toggle="popover" data-content="4-16 characters, no spaces or symbols allowed." data-placement="right" data-trigger="focus" required><br/>
+                    <p class="account pull-left">Don't have an account?<a ui-sref="register"> Register</a></p><br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>
