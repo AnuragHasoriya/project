@@ -1,17 +1,16 @@
 (function() {
     "use strict";
     angular
-        .module("Main", ["ui-router"])
+        .module("Main", ["ui.router", "ngAnimate", "toaster", "LocalStorageModule", "common.services"])
             .config(configMain)
             .run(runBlock);
         
-        configMain.$inject = ["$urlRouteProvier"];
-        function configMain($urlRouteProvier) {
-            $urlRouteProvier.otherwise("/register");
+        configMain.$inject = ["$urlRouterProvider"];
+        function configMain($urlRouterProvider) {
+            $urlRouterProvider.otherwise("/register");
         };
 
-        runBlock.$inject = ["$http"];
-        function runBlock($http) {
+        function runBlock() {
 
         };
 }) ();

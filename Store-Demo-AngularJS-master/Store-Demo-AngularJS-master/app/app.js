@@ -6,21 +6,21 @@
     .config(["$stateProvider", "$urlRouterProvider", "localStorageServiceProvider", function($stateProvider, $urlRouterProvider, localStorageServiceProvider){
         
         $stateProvider
-        .state('login',
-            {
-                url: "/login",
-                views:{
-                    nav:{
-                            templateUrl: "app/nav/nav.html",
-                            controller: "navCtrl as nav"
-                    },
-                    content:{
-                        templateUrl: "app/login/login.html",
-                        controller: "loginCtrl as login"
-                    }
-                }               
-            }
-        )
+        // .state('login',
+        //     {
+        //         url: "/login",
+        //         views:{
+        //             nav:{
+        //                     templateUrl: "app/nav/nav.html",
+        //                     controller: "navCtrl as nav"
+        //             },
+        //             content:{
+        //                 templateUrl: "app/login/login.html",
+        //                 controller: "loginCtrl as login"
+        //             }
+        //         }               
+        //     }
+        // )
 
         .state('register',
             {

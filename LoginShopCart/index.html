@@ -15,10 +15,10 @@
 
     <body>
 
-        <div ui-view name="nav" ></div> 
+        <div ui-view name = "nav" ></div> 
 
         <div class="container">
-            <div ui-view name="content" ></div>
+            <div ui-view name = "content" ></div>
         </div>
 
         <footer class = "footer">
@@ -34,6 +34,14 @@
         <script src = "assets/lib/angular-animate.js"></script>
         <script src = "assets/lib/angular-local-storage.min.js"></script>
         <script src = "assets/lib/toaster.min.js"></script>
+        <script src = "assets/lib/angular-mocks.js"></script>
+
+        <script src = "app/shared/services/common.service.js"></script>
+        
+        <!-- source -->
+        <script src = "app/app.js"></script>
+        <script src = "app/app.route.js"></script>
+        <script src = "app/components/RegisterForm/registerController.js"></script>
 
         <!-- jQuery  -->
         <script src = "assets/lib/jquery.js"></script>
@@ -42,5 +50,6 @@
         <!-- bootstrap Javascript -->
         <script src = "assets/lib/bootstrap.min.js"></script>
         <script src = "assets/lib/tooltip.js"></script>
+
     </body>
 </html>                  

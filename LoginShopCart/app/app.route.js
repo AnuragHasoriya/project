@@ -1,11 +1,11 @@
 (function() {
     angular
-        .module("Main", ["ui-router"])
+        .module("Main")
         .config(configureRoutes)
         .run(runBlock);
     
-        configureRoutes.$inject = ["$stateProvider", "$urlRouteProvider"];
-        function configureRoutes($stateProvider, $urlRouteProvider) {
+        configureRoutes.$inject = ["$stateProvider", "$urlRouterProvider"];
+        function configureRoutes($stateProvider, $urlRouterProvider) {
             $stateProvider
                 .state("main", {
                     cache : true,
@@ -13,18 +13,19 @@
                         "" : { 
                             templateUrl : "components/landing/landing.html",
                         },
-                        "footer" : {
+                        "footer@main" : {
                             templateUrl : "shared/layout/footer.html",
                         }
                      }
                 })
-                .state("registration", {
+                .state("registration@main", {
                     cache : true,
                     url : "/register",
                     views : {
                         content : {
-                            templateUrl : "components/registrationForm/registration.html",
+                            templateUrl : "/components/RegisterForm/register.html",
                             controller : "registerController",
+                            controllerAs : "vm",
                         }
                     }
                 })
